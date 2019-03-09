@@ -7,6 +7,7 @@
   <h3 style="color:blue">
     {{titulo}}
   </h3>
+
     <p>
       <strong>Empleado estrella:</strong>
       <br>
@@ -39,6 +40,7 @@
 
 </div>
 
+  <hr/>
   <h3>listado de empleados</h3>
   <ul>
 <li *ngFor="let empleado of trabajadores; let i=index">
@@ -49,3 +51,39 @@
   </ul>
 </li>
   </ul>
+
+  <h3>colores switch</h3>
+  <ul [ngSwitch]="color">
+    <li *ngSwitchCase="'red'" [ngStyle]="{'background':color, 'color':'white' ,'padding':'20px'}">es de color ROJO </li>
+    <li *ngSwitchCase="'blue'">es de color ROJO </li>
+    <li *ngSwitchCase="'pink'" [ngStyle]="{'background':color, 'color':'blue' ,'padding':'20px'}">es de color pink </li>
+
+  </ul>
+
+  <hr/>
+  <h3>selector de colores </h3>
+
+  <button (click)="logColorSeleccionado()">Mostrar Componente</button>
+  <input type ="text" [(ngModel)]="color_seleccionado"/>
+  <input type ="text"/>
+
+<!-- para hacer sin condicion y hacer con los de las clases  -->
+  <pre [style.border]="color_seleccionado == 'red' ? '5px solid black' : '1px solid green'"
+       [ngClass]="['fondoAzul','letraGrandes']">
+    <strong>color elegido:</strong>
+    {{color_seleccionado}}
+  </pre>
+
+  <!-- para  hacerlo con condicion
+  <pre [style.border]="color_seleccionado == 'red' ? '5px solid black' : '1px solid green'"
+       [ngClass]="{fondoAzul: color_seleccionado=='blue',fondoVerde: color_seleccionado=='green',letraGrandes: 1 == 1 }">
+    <strong>color elegido:</strong>
+    {{color_seleccionado}}
+  </pre>-->
+
+  <div [ngStyle]="{'background':color_seleccionado,'width':'200px','height':'200px','float':'right','margin-right':'69%','color':'blue' ,'padding':'20px'}"></div>
+  <div style ="clear:both"></div>
+
+
+
+

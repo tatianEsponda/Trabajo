@@ -12,8 +12,10 @@ export class EmpleadosComponent implements OnInit {
   public empleado:Empleado;
   public trabajadores:Array<Empleado>;
   public trabajadorexterno:boolean;
-public titulo='bienvenido';
-
+  public titulo='bienvenido';
+  public color:string;
+  public color_seleccionado:string;
+  public tamaños:string;
 
   constructor(){
 
@@ -25,14 +27,27 @@ public titulo='bienvenido';
       new Empleado('david3',65,'cocinero',false)
     ];
     this.trabajadorexterno=false;
+    this.color='pink' ;
+    this.color_seleccionado= '#ccc';
+    this.tamaños='largo'
+    ;
+
   }
 
   ngOnInit() {
 
   console.log(this.empleado);
     console.log(this.trabajadores);
+    console.log(this.tamaños);
   }
 cambiarExterno(valor){
     this.trabajadorexterno=valor;
+}
+
+logColorSeleccionado(){
+    console.log(this.color_seleccionado);
+}
+tamañoSeleccionado(){
+    console.log(this.tamaños);
 }
 }
